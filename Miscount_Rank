@@ -1,0 +1,86 @@
+Sub Miscount_Rank()
+'
+' Miscount_Rank Macro
+'
+
+'
+    Range("A1").Select
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+    Application.CutCopyMode = False
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 4
+    ActiveWindow.ScrollColumn = 5
+    ActiveWindow.ScrollColumn = 6
+    ActiveWindow.ScrollColumn = 7
+    ActiveWindow.ScrollColumn = 8
+    Columns("V:V").Select
+    Columns("W:W").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Columns("X:X").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Columns("V:V").Select
+    Selection.TextToColumns Destination:=Range("V1"), DataType:=xlDelimited, _
+        TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=True, _
+        Semicolon:=False, Comma:=False, Space:=False, Other:=True, OtherChar _
+        :="|", FieldInfo:=Array(Array(1, 1), Array(2, 1), Array(3, 1)), _
+        TrailingMinusNumbers:=True
+    ActiveCell.FormulaR1C1 = "TrnStpRcmd_6mth"
+    Range("W1").Select
+    ActiveCell.FormulaR1C1 = ""
+    Range("V1").Select
+    ActiveCell.FormulaR1C1 = "TrnStpRcmd_6mth"
+    Range("W1").Select
+    ActiveCell.FormulaR1C1 = "MiscountRcmd_6mth"
+    Range("X1").Select
+    ActiveCell.FormulaR1C1 = "SpeedRcmd_6mth"
+    Range("X2").Select
+    ActiveWindow.ScrollColumn = 9
+    ActiveWindow.ScrollColumn = 10
+    ActiveWindow.ScrollColumn = 11
+    ActiveWindow.ScrollColumn = 12
+    ActiveWindow.ScrollColumn = 13
+    ActiveWindow.ScrollColumn = 14
+    ActiveWindow.ScrollColumn = 15
+    ActiveWindow.ScrollColumn = 16
+    ActiveWindow.ScrollColumn = 17
+    ActiveWindow.ScrollColumn = 18
+    Columns("AJ:AJ").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Columns("AK:AK").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Columns("AI:AI").Select
+    Selection.TextToColumns Destination:=Range("AI1"), DataType:=xlDelimited, _
+        TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=True, _
+        Semicolon:=False, Comma:=False, Space:=False, Other:=True, OtherChar _
+        :="|", FieldInfo:=Array(Array(1, 1), Array(2, 1), Array(3, 1)), _
+        TrailingMinusNumbers:=True
+    ActiveCell.FormulaR1C1 = "TrainStopRcmd_1month"
+    Range("AJ1").Select
+    ActiveCell.FormulaR1C1 = "MiscountRcmd_1month"
+    Range("AK1").Select
+    ActiveCell.FormulaR1C1 = "SpeedRcmd_1month"
+    Columns("AV:AV").Select
+    Selection.TextToColumns Destination:=Range("AV1"), DataType:=xlDelimited, _
+        TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=True, _
+        Semicolon:=False, Comma:=False, Space:=False, Other:=True, OtherChar _
+        :="|", FieldInfo:=Array(Array(1, 1), Array(2, 1), Array(3, 1)), _
+        TrailingMinusNumbers:=True
+    ActiveWindow.ScrollColumn = 21
+    ActiveWindow.ScrollColumn = 22
+    Range("AV1").Select
+    ActiveCell.FormulaR1C1 = "TrainStopRcmd"
+    Range("AW1").Select
+    ActiveCell.FormulaR1C1 = "MiscountRcmd"
+    Range("AX1").Select
+    ActiveCell.FormulaR1C1 = "SpeedRcmd"
+    Range("V1").Select
+    ActiveCell.FormulaR1C1 = "TrainStopRcmd_6mth"
+    Range("AI1").Select
+    ActiveCell.FormulaR1C1 = "TrainStopRcmd_1mth"
+    Range("AJ1").Select
+    ActiveCell.FormulaR1C1 = "MiscountRcmd_1mth"
+    Range("AK1").Select
+    ActiveCell.FormulaR1C1 = "SpeedRcmd_1mth"
+    Range("A1").Select
+End Sub
