@@ -1,0 +1,39 @@
+Sub HBD_Comparator_7Days()
+
+Dim WorkRng1 As Range, WorkRng2 As Range, WorkRng3 As Range, WorkRng4 As Range, WorkRng5 As Range, WorkRng6 As Range, WorkRng7 As Range
+Dim Rng1 As Range, Rng2 As Range, Rng3 As Range, Rng4 As Range, Rng5 As Range, Rng6 As Range, Rng7 As Range
+
+xTitleId = "Top 10 Worst HBD Sites"
+Set WorkRng1 = Application.InputBox("Most Recent Range:", xTitleId, "", Type:=8)
+Set WorkRng2 = Application.InputBox("Next Range:", xTitleId, Type:=8)
+Set WorkRng3 = Application.InputBox("Next Range:", xTitleId, Type:=8)
+Set WorkRng4 = Application.InputBox("Next Range:", xTitleId, Type:=8)
+Set WorkRng5 = Application.InputBox("Next Range:", xTitleId, Type:=8)
+Set WorkRng6 = Application.InputBox("Next Range:", xTitleId, Type:=8)
+Set WorkRng7 = Application.InputBox("Next Range:", xTitleId, Type:=8)
+
+For Each Rng1 In WorkRng1
+    rngValue1 = Rng1.Value
+    For Each Rng2 In WorkRng2
+        rngValue2 = Rng2.Value
+        For Each Rng3 In WorkRng3
+            rngValue3 = Rng3.Value
+            For Each Rng4 In WorkRng4
+                rngValue4 = Rng4.Value
+                For Each Rng5 In WorkRng5
+                    rngValue5 = Rng5.Value
+                    For Each Rng6 In WorkRng6
+                        rngValue6 = Rng6.Value
+                        For Each Rng7 In WorkRng7
+                            If (rngValue1 = rngValue2 Or rngValue1 = rngValue3 Or rngValue1 = rngValue4 Or rngValue1 = rngValue5 Or rngValue1 = rngValue6 Or rngValue1 = rngValue7) Then
+                                Rng1.Interior.Color = VBA.RGB(255, 253, 173)
+                                Exit For
+                            End If
+                        Next
+                    Next
+                Next
+            Next
+        Next
+    Next
+Next
+End Sub
