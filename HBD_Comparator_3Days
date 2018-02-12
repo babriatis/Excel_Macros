@@ -1,0 +1,25 @@
+Sub HBD_Comparator_3Days()
+
+Dim WorkRng1 As Range, WorkRng2 As Range, WorkRng3 As Range
+Dim Rng1 As Range, Rng2 As Range, Rng3 As Range
+
+xTitleId = "Top 10 Worst HBD Sites"
+Set WorkRng1 = Application.InputBox("Most Recent Range:", xTitleId, "", Type:=8)
+Set WorkRng2 = Application.InputBox("Next Range:", xTitleId, Type:=8)
+Set WorkRng3 = Application.InputBox("Next Range:", xTitleId, Type:=8)
+
+
+For Each Rng1 In WorkRng1
+    rngValue1 = Rng1.Value
+    For Each Rng2 In WorkRng2
+        rngValue2 = Rng2.Value
+        For Each Rng3 In WorkRng3
+            If (rngValue1 = rngValue2 Or rngValue1 = rngValue3) Then
+                Rng1.Interior.Color = VBA.RGB(255, 253, 173)
+                Exit For
+            End If
+        Next
+    Next
+Next
+End Sub
+
