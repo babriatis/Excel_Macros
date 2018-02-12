@@ -1,0 +1,62 @@
+Sub Process_Stat_V4()
+'
+' Process_Stat_V4 Macro
+'
+
+'
+    Rows("1:11").Select
+    Range("A11").Activate
+    ActiveWindow.SmallScroll Down:=-27
+    Selection.Delete Shift:=xlUp
+    ActiveWindow.SmallScroll Down:=-45
+    Rows("2:2").Select
+    Selection.Delete Shift:=xlUp
+    ActiveWindow.SmallScroll Down:=477
+    Rows("499:501").Select
+    Selection.Delete Shift:=xlUp
+    ActiveWindow.SmallScroll Down:=510
+    Rows("996:998").Select
+    Selection.Delete Shift:=xlUp
+    Rows("1013:1014").Select
+    Selection.Delete Shift:=xlUp
+    ActiveWindow.SmallScroll Down:=-1209
+    Columns("H:H").EntireColumn.AutoFit
+    Columns("G:G").EntireColumn.AutoFit
+    Columns("A:A").Select
+    Selection.TextToColumns Destination:=Range("A1"), DataType:=xlFixedWidth, _
+        FieldInfo:=Array(Array(0, 1), Array(9, 1), Array(18, 1), Array(29, 1), Array(40, 1), _
+        Array(52, 1), Array(65, 1), Array(81, 1)), TrailingMinusNumbers:=True
+    Columns("H:H").EntireColumn.AutoFit
+    Range("I1").Select
+    ActiveCell.FormulaR1C1 = "Success Rate"
+    Range("I2").Select
+    Columns("I:I").EntireColumn.AutoFit
+    Rows("1:1").Select
+    Selection.Font.Bold = True
+    Columns("I:I").Select
+    Selection.Style = "Percent"
+    Range("I2").Select
+    ActiveCell.FormulaR1C1 = "=RC[-6]/RC[-7]"
+    Range("I2").Select
+    Selection.AutoFill Destination:=Range("I2:I1012"), Type:=xlFillDefault
+    Range("I2:I1012").Select
+    ActiveWindow.SmallScroll Down:=-1290
+    Range("A1").Select
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+    ActiveWorkbook.Worksheets("JWDS Process Stats Template").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("JWDS Process Stats Template").Sort.SortFields.Add _
+        Key:=Range("I2:I1032"), SortOn:=xlSortOnValues, Order:=xlAscending, _
+        DataOption:=xlSortNormal
+    ActiveWorkbook.Worksheets("JWDS Process Stats Template").Sort.SortFields.Add _
+        Key:=Range("B2:B1032"), SortOn:=xlSortOnValues, Order:=xlDescending, _
+        DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("JWDS Process Stats Template").Sort
+        .SetRange Range("A1:I1032")
+        .Header = xlYes
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+    Range("K1").Select
+End Sub
