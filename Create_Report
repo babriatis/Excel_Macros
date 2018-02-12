@@ -12,6 +12,7 @@ Sub Create_Report()
     
     
     'Trim the data
+    Sheets(current_date).Activate
     Sheets.Add After:=ActiveSheet
     Sheets("Sheet1").Select
     Sheets("Sheet1").Name = "Trimmed Data"
@@ -90,8 +91,11 @@ Sub Create_Report()
     Columns("E:E").ColumnWidth = 24.29
     Columns("G:G").ColumnWidth = 13.57
     Columns("H:H").ColumnWidth = 24.29
+    Columns("J:J").ColumnWidth = 24.29
+    Columns("K:K").ColumnWidth = 13.57
     
     If region = "North" Then
+        
         file = "[" + filename + " South.xlsx]" + current_date
         Range("A2").Select
         ActiveCell.FormulaR1C1 = "=SUM('" & file & "'!R16C8:R25C8)"
@@ -123,6 +127,7 @@ Sub Create_Report()
     End If
     
     If region = "South" Then
+    
         file = "[" + filename + " North.xlsx]" + current_date
         Range("A2").Select
         ActiveCell.FormulaR1C1 = "=SUM('" & current_date & "'!R16C8:R25C8)"
@@ -255,6 +260,47 @@ Sub Create_Report()
         .SortMethod = xlPinYin
         .Apply
     End With
+    
+    If region = "North" Then
+        Sheets("Ranks").Select
+        Range("J3").Select
+        ActiveCell.FormulaR1C1 = "Central"
+        Range("J4").Select
+        ActiveCell.FormulaR1C1 = "Dearborn"
+        Range("J5").Select
+        ActiveCell.FormulaR1C1 = "Harrisburg"
+        Range("J6").Select
+        ActiveCell.FormulaR1C1 = "Illinois"
+        Range("J7").Select
+        ActiveCell.FormulaR1C1 = "Lake"
+        Range("J8").Select
+        ActiveCell.FormulaR1C1 = "Pittsburgh"
+        Range("J9").Select
+        ActiveCell.FormulaR1C1 = "Total"
+        Range("K9").Select
+        ActiveCell.FormulaR1C1 = "=SUM(R[-6]C:R[-1]C)"
+    End If
+    
+    If region = "South" Then
+        Sheets("Ranks").Select
+        Range("J3").Select
+        ActiveCell.FormulaR1C1 = "Alabama"
+        Range("J4").Select
+        ActiveCell.FormulaR1C1 = "Central"
+        Range("J5").Select
+        ActiveCell.FormulaR1C1 = "Georgia"
+        Range("J6").Select
+        ActiveCell.FormulaR1C1 = "Piedmont"
+        Range("J7").Select
+        ActiveCell.FormulaR1C1 = "Pocahontas"
+        Range("J8").Select
+        ActiveCell.FormulaR1C1 = "Virginia"
+        Range("J9").Select
+        ActiveCell.FormulaR1C1 = "Total"
+        Range("K9").Select
+        ActiveCell.FormulaR1C1 = "=SUM(R[-6]C:R[-1]C)"
+    End If
+    
     Range("A1:B1").Select
 End Sub
 
