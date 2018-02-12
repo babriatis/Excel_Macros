@@ -1,0 +1,180 @@
+Sub Big_Data_Sort_V3()
+'
+' Big_Data_Sort_V3 Macro
+'
+
+'
+    Workbooks.Open filename:= _
+        "C:\Users\MX37J\Documents\Big Data\Top 10s\Northern Region Top 10 Worst Sites.xlsm"
+    Workbooks.Open filename:= _
+        "C:\Users\MX37J\Documents\Big Data\Top 10s\Southern Region Top 10 Worst Sites.xlsm"
+    Windows("detectors-rank-auc.csv").Activate
+    Range("A1").Select
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Macros.xlsm").Activate
+    ActiveSheet.Paste
+    Range("A1").Select
+    Cells.Select
+    ActiveWorkbook.Worksheets("Big Data Sort").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Big Data Sort").Sort.SortFields.Add Key:=Range( _
+        "H2:H1012"), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:= _
+        xlSortNormal
+    With ActiveWorkbook.Worksheets("Big Data Sort").Sort
+        .SetRange Range("A1:AR1012")
+        .Header = xlYes
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    Sheets.Add After:=ActiveSheet
+    Sheets("Template").Select
+    Rows("1:1").Select
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+    Selection.Copy
+    Sheets("Sheet1").Select
+    Sheets("Sheet1").Select
+    ActiveSheet.Paste
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    Sheets.Add After:=ActiveSheet
+    Sheets("Template").Select
+    Rows("1:1").Select
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+    Selection.Copy
+    Sheets("Sheet1").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    Rows("2:11").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A3").Select
+    ActiveSheet.Paste
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A3").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    Cells.Select
+    Application.CutCopyMode = False
+    ActiveWorkbook.Worksheets("Big Data Sort").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Big Data Sort").Sort.SortFields.Add Key:=Range( _
+        "C2:C1012"), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:= _
+        xlSortNormal
+    ActiveWorkbook.Worksheets("Big Data Sort").Sort.SortFields.Add Key:=Range( _
+        "H2:H1012"), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:= _
+        xlSortNormal
+    With ActiveWorkbook.Worksheets("Big Data Sort").Sort
+        .SetRange Range("A1:AR1012")
+        .Header = xlYes
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+    Rows("2:11").Select
+    Selection.Copy
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A16").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=120
+    Rows("127:136").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A16").Select
+    ActiveSheet.Paste
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A29").Select
+    ActiveSheet.Paste
+    ActiveWindow.SmallScroll Down:=39
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=24
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=87
+    Rows("215:224").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A29").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=63
+    Rows("274:283").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A42").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=90
+    Rows("371:380").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A42").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=96
+    Rows("464:473").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A55").Select
+    ActiveSheet.Paste
+    ActiveWindow.SmallScroll Down:=30
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=9
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=90
+    Rows("549:558").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A68").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=102
+    Rows("666:675").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A55").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=105
+    Rows("773:782").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A68").Select
+    ActiveSheet.Paste
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=54
+    Rows("829:838").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Northern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A81").Select
+    ActiveSheet.Paste
+    ActiveWindow.Zoom = 80
+    Windows("Macros.xlsm").Activate
+    ActiveWindow.SmallScroll Down:=108
+    Rows("938:947").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Windows("Southern Region Top 10 Worst Sites.xlsm").Activate
+    Range("A81").Select
+    ActiveSheet.Paste
+    ActiveWindow.Zoom = 80
+    Windows("Macros.xlsm").Activate
+    Sheets("Big Data Sort").Select
+    Rows("1:1").Select
+    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+    Selection.Delete
+    Windows("detectors-rank-auc.csv").Activate
+    ActiveWindow.Close
+End Sub
